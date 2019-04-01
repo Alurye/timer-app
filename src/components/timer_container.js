@@ -50,18 +50,15 @@ class TimerContainer extends Component {
 
   localReset = (id) => {
     const lapReset = this.state.laps.map((lap, i) => {
-          // console.log(id === i);
-          return id === i ? 0 : lap;  
+          return id === i ? 0 : lap;
 
     })
-    console.log(lapReset);
     this.setState({
       laps: lapReset
     })
   }
 
   resetTimer = () => {
-    // console.log('hit');
       clearInterval(this.startTimer);
       this.setState({
         seconds: 0
@@ -74,7 +71,6 @@ class TimerContainer extends Component {
 
 
   render() {
-    // console.log(this.state.laps)
     return (
       <div>
         <section>
@@ -83,8 +79,8 @@ class TimerContainer extends Component {
           })}
         </section>
 
-        {<Timer resetTimer={this.resetTimer} seconds={this.state.seconds} />
-        }
+      <Timer resetTimer={this.resetTimer} seconds={this.state.seconds} />
+
       <button onClick={() => {this.addLap(this.state.seconds)} }>record lap</button>
       <button onClick={this.globalReset}>global reset</button>
       </div>
